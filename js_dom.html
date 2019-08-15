@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: pink;
+        margin: 0;
+    }
+
+    * {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    div:nth-child(odd) {
+        background-color: plum;
+        display: block;
+    }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1 id="header">Hello World!</h1>
+        <button>Click this button!</button>
+    </div>
+
+    <div id="myDiv">
+            <h1>Hello World!</h1>
+            <button id= "divButton">Click this button!</button>
+    </div>
+
+    <div>
+        <h1 id="header">Hello World!</h1>
+        <button>Click this button!</button>
+    </div>
+
+    <script>
+    //A function that access the h1 inside of the div
+    let myHeader = document.getElementById('header');
+    let myButton = document.querySelector('button');
+    myButton.addEventListener('click', changeHeader);
+
+    function changeHeader() {
+        document.getElementById('header');
+        myHeader.innerText = "This element node has no class or id and is instead accessed using the querySelector method.";
+    }
+
+    //A function that changes the display method of the div.
+    let myDivButton = document.getElementById('divButton');
+    myDivButton.addEventListener('click', noDivs);
+        function noDivs() {
+        document.getElementById('myDiv').style.display = 'none';
+    }
+    </script>
+    
+</body>
+</html>
