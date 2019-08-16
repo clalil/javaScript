@@ -52,28 +52,28 @@
 <body>
     <div>
         <h1 id="header">Hello World!</h1>
-        <button>Click this button!</button>
+        <button>Click this button to change the header!</button>
     </div>
 
         <div id="mydiv">
             <h1>Goodbye World?!</h1>
         </div>
-    <button id= "divButton">Click this button!</button>
+    <button id= "divButton">Click this button to make the header disappear!</button>
 
     <div id="div1">
         <h1 id="h0">Hello World!</h1>
-        <button id="paraBtn">Click this button!</button>
+        <button id="paraBtn">Click this button to add more text!</button>
     </div>
 
     <div id="divBackground">
         <h1>Hello World!</h1>
-        <button id="bgBtn">Click this button!</button>
+        <button id="bgBtn">Click this button to change the background of this div!</button>
     </div>
 
         <div style="padding: 1rem;">
         <ul>
             <button id="menu-js">
-                My Menu
+                Click to display a menu!
             <ul id="drop-js">
             <li>One</li>
             <li>Two</li>
@@ -86,7 +86,7 @@
         <div style="padding: 1rem">
                 <ul>
                     <button id="menu2-js" style="width: 200px;">
-                        My Menu
+                        Click here to make it disappear!
                     <ul id="drop2-js">
                     <li>One</li>
                     <li>Two</li>
@@ -95,6 +95,11 @@
                 </button>
                 </ul>
                 </div>
+
+        <div>
+            <h1 id="header2">Hello World!</h1>
+            <button id="button2">Click here to initiate a timed function inside of another function!</button>
+        </div>            
 
     <script>
     // A function that access the h1 inside of the div and changes its text.
@@ -159,6 +164,20 @@
     function myMenu2() {
         let myDropDown = document.getElementById('drop2-js');
         myDropDown.classList.toggle('invisibleMenu');
+    }
+
+    //Add a timed function inside of another function
+    let myButton2 = document.getElementById('button2');
+    myButton2.addEventListener('click', changeHeader2);
+
+    function changeHeader2() {
+        let myHeader2 = document.getElementById('header2');
+        myHeader2.innerText = "Goodbye World!";
+
+        setTimeout(function additionalHeader() {
+        let myHeader2 = document.getElementById('header2');
+        myHeader2.innerText = "Hello again, World!";
+    }, 1000);
     }
 
     </script>
