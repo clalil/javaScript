@@ -20,6 +20,19 @@
         background-color: plum;
         display: block;
     }
+
+    #odd {
+        background-color: plum;
+    }
+
+    #myDiv {
+        width: 100%;
+    }
+
+    #divButton {
+        margin: 5%;
+    }
+
     </style>
 
 </head>
@@ -29,33 +42,40 @@
         <button>Click this button!</button>
     </div>
 
-    <div id="myDiv">
-            <h1>Hello World!</h1>
-            <button id= "divButton">Click this button!</button>
-    </div>
+        <div id="mydiv">
+            <h1>Goodbye World?!</h1>
+        </div>
+    <button id= "divButton">Click this button!</button>
 
-    <div>
+    <div id="odd">
         <h1 id="header">Hello World!</h1>
         <button>Click this button!</button>
     </div>
 
     <script>
-    //A function that access the h1 inside of the div
-    let myHeader = document.getElementById('header');
+    // A function that access the h1 inside of the div and changes its text.
     let myButton = document.querySelector('button');
     myButton.addEventListener('click', changeHeader);
 
     function changeHeader() {
-        document.getElementById('header');
-        myHeader.innerText = "This element node has no class or id and is instead accessed using the querySelector method.";
+        let myHeader = document.getElementById('header');
+        myHeader.innerText = "This element node is accessed using the querySelector method.";
     }
 
-    //A function that changes the display method of the div.
-    let myDivButton = document.getElementById('divButton');
-    myDivButton.addEventListener('click', noDivs);
-        function noDivs() {
-        document.getElementById('myDiv').style.display = 'none';
+    // A function that changes the display method of the div labeled "mydiv"
+    //when clicking on the button labeled "divButton".
+        divButton.addEventListener('click', noDivs);
+
+    function noDivs() {
+        if (mydiv.style.display === 'none') {
+            mydiv.style.display = 'block';
+        } else {
+            mydiv.style.display = 'none';
+        }
     }
+
+    // 
+
     </script>
     
 </body>
