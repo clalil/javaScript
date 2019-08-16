@@ -17,7 +17,7 @@
         text-align: center;
     }
 
-    div:nth-child(odd) {
+    div:nth-child(even) {
         background-color: plum;
         display: block;
     }
@@ -45,6 +45,19 @@
 
     .invisibleMenu {
         display: none;
+    }
+
+    /*Div Eight Style*/
+    #mySideMenu {
+        height: 100%;
+        width: 0;
+        left: 0;
+        overflow-x: hidden;
+        z-index: 1;
+    }
+
+    #bigBtn {
+        position: absolute;
     }
     </style>
 
@@ -99,7 +112,15 @@
         <div>
             <h1 id="header2">Hello World!</h1>
             <button id="button2">Click here to initiate a timed function inside of another function!</button>
-        </div>            
+        </div>
+
+        <button id="openBtn" class="bigBtn" style="font-size: 2rem; margin-top: 5%;"><strong>&#9776;</strong></button>
+        <div id="mySideMenu">
+            <span id="closeBtn" style="font-size: 2rem; margin-top: 5%; cursor:pointer;"><strong>&times;</strong></span>
+            <p>Hello Fake Menu!</p>
+            <p>Here is some content.</p>
+            <p>Here is some more content.</p>
+        </div>
 
     <script>
     // A function that access the h1 inside of the div and changes its text.
@@ -178,6 +199,19 @@
         let myHeader2 = document.getElementById('header2');
         myHeader2.innerText = "Hello again, World!";
     }, 1000);
+    }
+
+    //A function to display a sidebar.
+    document.getElementById('openBtn').addEventListener('click', openSidebar);
+
+    function openSidebar() {
+        document.getElementById('mySideMenu').style.width = '95%';
+    }
+
+    document.getElementById('closeBtn').addEventListener('click', closeSidebar);
+
+    function closeSidebar() {
+        document.getElementById('mySideMenu').style.width = '0';
     }
 
     </script>
