@@ -21,7 +21,7 @@
         display: block;
     }
 
-    #odd {
+    #div1 {
         background-color: plum;
     }
 
@@ -47,9 +47,14 @@
         </div>
     <button id= "divButton">Click this button!</button>
 
-    <div id="odd">
-        <h1 id="header">Hello World!</h1>
-        <button>Click this button!</button>
+    <div id="div1">
+        <h1 id="h0">Hello World!</h1>
+        <button id="paraBtn">Click this button!</button>
+    </div>
+
+    <div id="divBackground">
+        <h1>Hello World!</h1>
+        <button id="bgBtn">Click this button!</button>
     </div>
 
     <script>
@@ -67,14 +72,31 @@
         divButton.addEventListener('click', noDivs);
 
     function noDivs() {
-        if (mydiv.style.display === 'none') {
+        if (mydiv.style.display == 'block') {
             mydiv.style.display = 'block';
         } else {
             mydiv.style.display = 'none';
         }
     }
 
-    // 
+    // A function that does somewhat the same as the first example.
+    let parentDiv = document.getElementById('div1');
+    let newH1 = document.createElement('h1');
+    newH1.innerHTML = "A lot of unneccesary (?) code to do a simple task!";
+
+    paraBtn.addEventListener('click', changeHeaderText)
+
+    function changeHeaderText() {
+    let originalHeader = document.getElementById('h0');
+    parentDiv.insertBefore(newH1, originalHeader);
+    }
+
+    //A function that changes the background color of the div "divBackground".
+    bgBtn.addEventListener('click', changeBG)
+
+    function changeBG() {
+        document.getElementById('divBackground').style.background = 'pink';
+    }
 
     </script>
     
