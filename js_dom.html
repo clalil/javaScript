@@ -33,6 +33,14 @@
         margin: 5%;
     }
 
+    .Divmenu {
+        background: blue;
+    }
+
+    #drop-js {
+        display:none;
+    }
+
     </style>
 
 </head>
@@ -57,6 +65,19 @@
         <button id="bgBtn">Click this button!</button>
     </div>
 
+        <div style="padding: 1rem;">
+        <ul>
+            <button id="menu-js">
+                My Menu
+            <ul id="drop-js">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            </ul>
+        </button>
+        </ul>
+        </div>
+
     <script>
     // A function that access the h1 inside of the div and changes its text.
     let myButton = document.querySelector('button');
@@ -74,17 +95,19 @@
     function noDivs() {
         if (mydiv.style.display == 'block') {
             mydiv.style.display = 'block';
-        } else {
+        } 
+        else {
             mydiv.style.display = 'none';
         }
     }
 
-    // A function that does somewhat the same as the first example.
+    // A function that adds an additional element instead of replacing an already
+    // exisiting element's content.
     let parentDiv = document.getElementById('div1');
     let newH1 = document.createElement('h1');
     newH1.innerHTML = "A lot of unneccesary (?) code to do a simple task!";
 
-    paraBtn.addEventListener('click', changeHeaderText)
+    paraBtn.addEventListener('click', changeHeaderText);
 
     function changeHeaderText() {
     let originalHeader = document.getElementById('h0');
@@ -92,12 +115,24 @@
     }
 
     //A function that changes the background color of the div "divBackground".
-    bgBtn.addEventListener('click', changeBG)
+    bgBtn.addEventListener('click', changeBG);
 
     function changeBG() {
-        document.getElementById('divBackground').style.background = 'pink';
+        document.getElementById('divBackground').style.background = '#B88FC4';
     }
 
+    // A function that displays the content of a drop down menu.
+    let menuBtn = document.getElementById('menu-js');
+    menuBtn.addEventListener('click', myMenu);
+
+    function myMenu() {
+        let myDropDown = document.getElementById('drop-js');
+        if (myDropDown.style.display = 'none') {
+            myDropDown.style.display = 'block';
+        } 
+        else { myDropDown.style.display = 'none';
+        }
+    }
     </script>
     
 </body>
