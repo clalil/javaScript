@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        /* General styles */
     body {
         background-color: pink;
         margin: 0;
@@ -20,11 +21,11 @@
         background-color: plum;
         display: block;
     }
-
+    /*Div One Styling */
     #div1 {
         background-color: plum;
     }
-
+    /* Div Two Styling */
     #myDiv {
         width: 100%;
     }
@@ -32,7 +33,7 @@
     #divButton {
         margin: 5%;
     }
-
+    /* Div Five Styling */
     .Divmenu {
         background: blue;
     }
@@ -40,7 +41,11 @@
     #drop-js {
         display:none;
     }
+    /*Div Six Styling */
 
+    .invisibleMenu {
+        display: none;
+    }
     </style>
 
 </head>
@@ -77,6 +82,19 @@
         </button>
         </ul>
         </div>
+
+        <div style="padding: 1rem">
+                <ul>
+                    <button id="menu2-js" style="width: 200px;">
+                        My Menu
+                    <ul id="drop2-js">
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    </ul>
+                </button>
+                </ul>
+                </div>
 
     <script>
     // A function that access the h1 inside of the div and changes its text.
@@ -133,6 +151,16 @@
         else { myDropDown.style.display = 'none';
         }
     }
+
+    //Add a drop down menu with toggle abilities
+    let menuBtn2 = document.getElementById('menu2-js');
+    menuBtn2.addEventListener('click', myMenu);
+
+    function myMenu() {
+        let myDropDown = document.getElementById('drop2-js');
+        myDropDown.classList.toggle('invisibleMenu');
+    }
+
     </script>
     
 </body>
