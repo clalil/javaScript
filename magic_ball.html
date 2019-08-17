@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <title>My magic eight ball shall predict the future.</title>
+    <style>
+
+    body {
+        box-sizing: border-box;
+        font-family: 'Merriweather', serif;
+        line-height: 1.4;
+    }    
+    *,
+    ::before,
+    ::after {
+        margin: 0;
+        box-sizing: inherit;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 400px;
+        width: 400px;
+        margin-left: -200px;
+        margin-top: -200px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+        overflow: hidden;
+    }
+
+    .container__magic {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0,0,0,0.8);
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        box-shadow: inset -5px -4px 28px 15px rgba(0,0,0,0.9),
+                    5px 3px 10px 1px rgba(0,0,0,0.8);
+    }
+
+    span {
+        position: absolute;
+        background-color: rgba(245,245,245);
+        height: 45%;
+        width: 45%;
+        top: 20%;
+        left: 20%;
+        border-radius: inherit;
+        text-align: center;
+        padding-top: 10%;
+        font-size: 2.5rem;
+        box-shadow: inset 5px 4px 5px 8px rgba(118,118,118,0.9);
+        cursor: pointer;
+    }
+
+    span:hover {
+        transition: 0.5s ease;
+        background-color: rgb(204, 51, 0);
+        box-shadow: inset 5px 4px 5px 8px rgba(153,51,0,0.9);
+    }
+
+    h1 {
+        font-size: 1.2rem; 
+        text-align: center; 
+        margin: 0.5rem;
+    }
+
+    h2 {
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+        font-size: 1rem; 
+        font-weight: 700;
+        text-align: left; 
+        margin: 1rem 0 0 0;
+    }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Think of a question <em>before</em> you click <br>the magic eight ball.</h1>
+        <div class="container__magic">
+                <span>8</span>
+            </div>
+        <h2 id="magicReply"></h2>
+    </div>
+
+    <script>
+        document.querySelector('span').addEventListener('click', eightBall);
+        let magicReply = [
+            "Not a chance!",
+            "Perhaps, perhaps, perhaps..",
+            "I never thought you'd ask!",
+            "Ask me again.",
+            "Yes! Oh, yes! Yes! Yes!"
+        ]
+        function eightBall() {
+            let randomNum = Math.floor(Math.random() * magicReply.length);
+            //Since Math.random returns a floating-point, pseudo random number >= 0 && < 1, the Math.floor corrects this 
+            //by rounding the number to the largest integer less than or equal to the given number by Math.random!
+            document.getElementById('magicReply').innerHTML = "The ball replies: " + (magicReply[randomNum]);
+        }
+    </script>
+    
+</body>
+</html>
