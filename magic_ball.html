@@ -25,6 +25,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%,-50%);
         height: 400px;
         width: 400px;
         box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
@@ -44,6 +45,7 @@
         box-shadow: inset -5px -4px 28px 15px rgba(0,0,0,0.9),
                     5px 3px 10px 1px rgba(0,0,0,0.8);
         animation: ball 0.8s ease-in-out both;
+        -webkit-animation: ball 0.8s ease-in-out both;
     }
 
     span {
@@ -62,8 +64,7 @@
     }
 
     span:hover {
-        transition: 0.5s ease;
-        background-color: rgb(204, 51, 0);
+        background: linear-gradient(120deg,#80251b, #c42f12, #b03123, #f54531);
         box-shadow: inset 5px 4px 5px 8px rgba(153,51,0,0.9);
     }
 
@@ -87,26 +88,58 @@
         0% {
             opacity: 0;
             transform: scale(0);
+            -ms-transform: scale(0);
         }
 
         25% {
             opacity: 0.3;
             transform: scale(0.5);
+            -ms-transform: scale(0.5);
         }
 
         50% {
             opacity: 0.5;
             transform: scale(1.1);
+            -ms-transform: scale(1.1);
         }
 
         80% {
             opacity: 0.9;
             transform: scale(0.9);
+            -ms-transform: scale(0.9);
         }
 
         100% {
             opacity: 1;
             transform: scale(1);
+            -ms-transform: scale(1);
+        }
+    }
+
+    @-webkit-keyframes ball {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(0);
+        }
+
+        25% {
+            opacity: 0.3;
+            -webkit-transform: scale(0.5);
+        }
+
+        50% {
+            opacity: 0.5;
+            -webkit-transform: scale(1.1);
+        }
+
+        80% {
+            opacity: 0.9;
+            -webkit-transform: scale(0.9);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
         }
     }
 
@@ -129,7 +162,8 @@
             "Not a chance!",
             "Perhaps, perhaps, perhaps..",
             "I never thought you'd ask!",
-            "Ask me again.",
+            "I honestly have no idea.",
+            "Ask me again tomorrow.",
             "Yes! Oh, yes! Yes! Yes!"
         ]
         function eightBall() {
