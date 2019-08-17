@@ -63,26 +63,31 @@
 
 </head>
 <body>
+    <!--DIV ONE-->
     <div>
         <h1 id="header">Hello World!</h1>
         <button>Click this button to change the header!</button>
     </div>
 
+    <!--DIV TWO-->
         <div id="mydiv">
             <h1>Goodbye World?!</h1>
         </div>
     <button id= "divButton">Click this button to make the header disappear!</button>
 
+    <!--DIV THREE-->
     <div id="div1">
         <h1 id="h0">Hello World!</h1>
         <button id="paraBtn">Click this button to add more text!</button>
     </div>
 
+    <!--DIV FOUR-->
     <div id="divBackground">
         <h1>Hello World!</h1>
         <button id="bgBtn">Click this button to change the background of this div!</button>
     </div>
 
+    <!--DIV FIVE-->
         <div style="padding: 1rem;">
         <ul>
             <button id="menu-js">
@@ -96,6 +101,7 @@
         </ul>
         </div>
 
+        <!--DIV SIX-->
         <div style="padding: 1rem">
                 <ul>
                     <button id="menu2-js" style="width: 200px;">
@@ -109,11 +115,13 @@
                 </ul>
                 </div>
 
+        <!--DIV SEVEN-->
         <div>
             <h1 id="header2">Hello World!</h1>
             <button id="button2">Click here to initiate a timed function inside of another function!</button>
         </div>
 
+        <!--DIV EIGHT-->
         <button id="openBtn" class="bigBtn" style="font-size: 2rem; margin-top: 5%;"><strong>&#9776;</strong></button>
         <div id="mySideMenu">
             <span id="closeBtn" style="font-size: 2rem; margin-top: 5%; cursor:pointer;"><strong>&times;</strong></span>
@@ -123,6 +131,7 @@
         </div>
 
     <script>
+    //FUNCTION FOR DIV #1
     // A function that access the h1 inside of the div and changes its text.
     let myButton = document.querySelector('button');
     myButton.addEventListener('click', changeHeader);
@@ -132,6 +141,7 @@
         myHeader.innerText = "This element node is accessed using the querySelector method.";
     }
 
+    //FUNCTION FOR DIV #2
     // A function that changes the display method of the div labeled "mydiv"
     //when clicking on the button labeled "divButton".
         divButton.addEventListener('click', noDivs);
@@ -145,6 +155,7 @@
         }
     }
 
+    //FUNCTION FOR DIV #3
     // A function that adds an additional element instead of replacing an already
     // exisiting element's content.
     let parentDiv = document.getElementById('div1');
@@ -158,6 +169,7 @@
     parentDiv.insertBefore(newH1, originalHeader);
     }
 
+    //FUNCTION FOR DIV #4
     //A function that changes the background color of the div "divBackground".
     bgBtn.addEventListener('click', changeBG);
 
@@ -165,6 +177,7 @@
         document.getElementById('divBackground').style.background = '#B88FC4';
     }
 
+    //FUNCTION FOR DIV #5
     // A function that displays the content of a drop down menu.
     let menuBtn = document.getElementById('menu-js');
     menuBtn.addEventListener('click', myMenu);
@@ -178,6 +191,7 @@
         }
     }
 
+    //FUNCTION FOR DIV #6
     //Add a drop down menu with toggle abilities
     let menuBtn2 = document.getElementById('menu2-js');
     menuBtn2.addEventListener('click', myMenu2);
@@ -187,6 +201,7 @@
         myDropDown.classList.toggle('invisibleMenu');
     }
 
+    //FUNCTION FOR DIV #7
     //Add a timed function inside of another function
     let myButton2 = document.getElementById('button2');
     myButton2.addEventListener('click', changeHeader2);
@@ -201,15 +216,14 @@
     }, 1000);
     }
 
+    //FUNCTION FOR DIV #8
     //A function to display a sidebar.
     document.getElementById('openBtn').addEventListener('click', openSidebar);
-
     function openSidebar() {
         document.getElementById('mySideMenu').style.width = '95%';
     }
 
     document.getElementById('closeBtn').addEventListener('click', closeSidebar);
-
     function closeSidebar() {
         document.getElementById('mySideMenu').style.width = '0';
     }
