@@ -50,7 +50,7 @@
         animation: ball 0.8s ease-in-out both;
         -webkit-animation: ball 0.8s ease-in-out both;
     }
-    /*Used to restart animation*/
+    /* Used to restart animation*/
     .container__magic:active {
         animation: spinn;
     }
@@ -183,6 +183,7 @@
 
     <div class="container">
         <h1>Think of a question <em>before</em> you click <br>the magic eight ball.</h1>
+        <p style="text-align: center; color: lightgray; margin: 0.5rem 0 1rem 0;">"Hint: Press the '8' to get started."</p>
         <div class="container__magic">
                 <span>8</span>
             </div>
@@ -190,6 +191,7 @@
     </div>
 
     <script>
+
         document.querySelector('span').addEventListener('click', eightBall);
         let magicReply = [
             "Not a chance!",
