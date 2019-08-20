@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <title>BMI Calculator</title>
+
+    <style>
+    /*--Fundamentals--*/
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #b4ffcd;
+  background-color: #ffbab4;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*--Container--*/
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(173,124,119,0.2);
+    border: 1px solid #945048;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.about {
+    background-color: #eda69e;
+    margin: 1rem;
+    padding: 3rem 2rem;
+}
+
+/*--Calculator--*/
+
+.container__calculator {
+    background-color: #eda69e;
+    margin: 1rem;
+}
+
+#metricBtn {
+    margin-right: 1rem;
+}
+
+/*--Forms--*/
+.form__row {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+}
+
+.form__row input[type='number'] {
+    background-color: #fff;
+    border: 1px solid #945048;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.form__row label {
+    margin-bottom: 0.9rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+}
+/*--Remove appearance of scroll on input fields in Chrome*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.metric {
+    padding-top: 1rem;
+    border: 1px solid #ab766f;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.imperial {
+    padding-top: 1rem;
+    border: 1px solid #ab766f;
+    display: none;
+}
+
+button {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    border: 1px solid #945048;
+    background: rgba(246,244,247, 0.8);
+}
+
+
+
+/*--Media queries--*/
+
+form__row {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="about">
+            <h1>BMI Calculator</h1>
+        </div>
+
+        <div class="choice">
+            <span><p>Choose between metric or imperial system.</p></span>
+            <button id="metricBtn">Metric</button><button id="imperialBtn">Imperial</button>
+        </div>
+
+        <div class="container__calculator">
+            <div class="metric">
+            <h2>Metric system</h2>
+            <form action='' method='get' class='speaker-form'>
+                    <div class='form__row'>
+                            <label for='user_h'>Enter your height (cm)</label>
+                            <input id='user_h' name='user_height' type='number'/>
+                            <!--Omitting 'placeholder' as advised by MDN web docs-->
+                    </div>
+            </form>
+            <form action='' method='get' class='speaker-form'>
+                    <div class='form__row'>
+                            <label for='user_w'>Enter your weight (kg)</label>
+                            <input id='user_w' name='user_weight' type='number'/>
+                    </div>
+            </form>
+            </div>
+
+            <div class="imperial">
+                    <h2>Imperial system</h2>
+                    <form action='' method='get' class='speaker-form'>
+                            <div class='form__row'>
+                                    <label for='user_h'>Enter your height (inch)</label>
+                                    <input id='user_h' name='user_height' type='number'/>
+                                    <!--Omitting 'placeholder' as advised by MDN web docs-->
+                            </div>
+                    </form>
+                    <form action='' method='get' class='speaker-form'>
+                            <div class='form__row'>
+                                    <label for='user_w'>Enter your weight (lbs)</label>
+                                    <input id='user_w' name='user_weight' type='number'/>
+                            </div>
+                    </form>
+            </div>
+
+            <div class="form__row">
+                <button>Calculate BMI</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        //Show and hide chosen system.
+        //metricBtn imperialBtn
+        document.getElementById('metricBtn').addEventListener('click', showMetric);
+        function showMetric() { 
+            let metricDiv = document.getElementsByClassName('metric');
+            if (metricDiv.style.display = 'none') { metricDiv.style.display = 'block'; } 
+        else { metricDiv.style.display = 'none'; }
+            }
+
+    </script>
+    
+</body>
+</html>
