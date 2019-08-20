@@ -123,11 +123,11 @@ button:hover {
     margin: 0.1rem 2rem 0.4rem 2rem;
 }
 
-.first {
+.metricDiv {
     display: block;
 }
 
-.second {
+.imperialDiv {
     display: none;
 }
 
@@ -154,7 +154,7 @@ form__row {
                     <button id="hideMetric">Use Imperial</button> <button id="hideImperial">Use Metric</button>
                 </div>
 
-            <div class="first">
+            <div class="metricDiv">
             <div class="metric">
                 <h2>Metric system</h2>
                 <form action='' method='get' class='speaker-form'>
@@ -173,7 +173,7 @@ form__row {
             </div>
         </div>
 
-            <div class="second">
+            <div class="imperialDiv">
                 <div class="imperial">
                     <h2>Imperial system</h2>
                     <form action='' method='get' class='speaker-form'>
@@ -198,8 +198,8 @@ form__row {
 
     <script>
 
-    const firstDiv = document.querySelector('.first');
-    const secondDiv = document.querySelector('.second');
+    const firstDiv = document.querySelector('.metricDiv');
+    const secondDiv = document.querySelector('.imperialDiv');
     const btnHide = document.getElementById('hideMetric');
     const btnShow = document.getElementById('hideImperial');
 
