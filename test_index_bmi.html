@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 /*--Container--*/
@@ -44,14 +45,17 @@ body {
     background-color: #eda69e;
     margin: 1rem;
     padding: 3rem 2rem;
+    border: 1px solid #ab766f;
+}
+
+.choice {
+    background-color: #eda69e;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ab766f;
 }
 
 /*--Calculator--*/
-
-.container__calculator {
-    background-color: #eda69e;
-    margin: 1rem;
-}
 
 #metricBtn {
     margin-right: 1rem;
@@ -73,7 +77,6 @@ body {
     width: 100%;
     font-size: 0.8rem;
     padding: 0.5rem;
-    overflow: hidden;
     text-align: center;
 }
 
@@ -89,20 +92,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .metric {
-    padding-top: 1rem;
+    background-color: #eda69e;
+    padding: 1rem;
     border: 1px solid #ab766f;
-    margin-bottom: 1rem;
-    display: none;
+    margin: 1rem;
 }
 
 .imperial {
-    padding-top: 1rem;
+    background-color: #eda69e;
+    padding: 1rem;
     border: 1px solid #ab766f;
-    display: none;
+    margin: 1rem;
 }
 
 button {
-    margin-top: 0.5rem;
+    margin: 1rem 1rem 0.4rem 1rem;
     padding: 1rem;
     border-radius: 3px;
     font-size: 0.9rem;
@@ -110,7 +114,22 @@ button {
     background: rgba(246,244,247, 0.8);
 }
 
+button:hover {
+    transition: .2s;
+    border: 3px solid #ab766f;
+}
 
+#calcBtn {
+    margin: 0.1rem 2rem 0.4rem 2rem;
+}
+
+.first {
+    display: block;
+}
+
+.second {
+    display: none;
+}
 
 /*--Media queries--*/
 
@@ -125,41 +144,42 @@ form__row {
 <body>
 
     <div class="container">
-
-        <div class="about">
-            <h1>BMI Calculator</h1>
-        </div>
-
-        <div class="choice">
-            <span><p>Choose between metric or imperial system.</p></span>
-            <button id="metricBtn">Metric</button><button id="imperialBtn">Imperial</button>
-        </div>
-
-        <div class="container__calculator">
-            <div class="metric">
-            <h2>Metric system</h2>
-            <form action='' method='get' class='speaker-form'>
-                    <div class='form__row'>
-                            <label for='user_h'>Enter your height (cm)</label>
-                            <input id='user_h' name='user_height' type='number'/>
-                            <!--Omitting 'placeholder' as advised by MDN web docs-->
-                    </div>
-            </form>
-            <form action='' method='get' class='speaker-form'>
-                    <div class='form__row'>
-                            <label for='user_w'>Enter your weight (kg)</label>
-                            <input id='user_w' name='user_weight' type='number'/>
-                    </div>
-            </form>
+            
+            <div class="about">
+                    <h1>BMI Calculator</h1>
             </div>
 
-            <div class="imperial">
+                <div class="choice">
+                    <span><p>Choose unit system.</p></span>
+                    <button id="hideMetric">Use Imperial</button> <button id="hideImperial">Use Metric</button>
+                </div>
+
+            <div class="first">
+            <div class="metric">
+                <h2>Metric system</h2>
+                <form action='' method='get' class='speaker-form'>
+                        <div class='form__row'>
+                                <label for='user_h'>Enter your height (cm)</label>
+                                <input id='user_h' name='user_height' type='number'/>
+                                <!--Omitting 'placeholder' as advised by MDN web docs-->
+                        </div>
+                </form>
+                <form action='' method='get' class='speaker-form'>
+                        <div class='form__row'>
+                                <label for='user_w'>Enter your weight (kg)</label>
+                                <input id='user_w' name='user_weight' type='number'/>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+            <div class="second">
+                <div class="imperial">
                     <h2>Imperial system</h2>
                     <form action='' method='get' class='speaker-form'>
                             <div class='form__row'>
                                     <label for='user_h'>Enter your height (inch)</label>
                                     <input id='user_h' name='user_height' type='number'/>
-                                    <!--Omitting 'placeholder' as advised by MDN web docs-->
                             </div>
                     </form>
                     <form action='' method='get' class='speaker-form'>
@@ -168,25 +188,30 @@ form__row {
                                     <input id='user_w' name='user_weight' type='number'/>
                             </div>
                     </form>
+                </div>
             </div>
-
             <div class="form__row">
-                <button>Calculate BMI</button>
+                <button id="calcBtn">Calculate BMI</button>
             </div>
-
         </div>
-    </div>
+    </div>    
 
     <script>
 
-        //Show and hide chosen system.
-        //metricBtn imperialBtn
-        document.getElementById('metricBtn').addEventListener('click', showMetric);
-        function showMetric() { 
-            let metricDiv = document.getElementsByClassName('metric');
-            if (metricDiv.style.display = 'none') { metricDiv.style.display = 'block'; } 
-        else { metricDiv.style.display = 'none'; }
-            }
+    const firstDiv = document.querySelector('.first');
+    const secondDiv = document.querySelector('.second');
+    const btnHide = document.getElementById('hideMetric');
+    const btnShow = document.getElementById('hideImperial');
+
+    btnHide.addEventListener('click', () => {
+    firstDiv.style.display = 'none';
+        secondDiv.style.display = 'block';
+    });
+
+    btnShow.addEventListener('click', () => {
+    firstDiv.style.display = 'block';
+    secondDiv.style.display = 'none';
+    });
 
     </script>
     
