@@ -198,19 +198,19 @@ form__row {
 
     <script>
 
-    const firstDiv = document.querySelector('.metricDiv');
-    const secondDiv = document.querySelector('.imperialDiv');
-    const btnHide = document.getElementById('hideMetric');
-    const btnShow = document.getElementById('hideImperial');
+    const METRICDIV = document.querySelector('.metricDiv');
+    const IMPERIALDIV = document.querySelector('.imperialDiv');
+    const btnHideM = document.getElementById('hideMetric');
+    const btnHideI = document.getElementById('hideImperial');
 
-    btnHide.addEventListener('click', () => {
-    firstDiv.style.display = 'none';
-        secondDiv.style.display = 'block';
+    btnHideM.addEventListener('click', () => {
+    METRICDIV.style.display = 'none';
+        IMPERIALDIV.style.display = 'block';
     });
 
-    btnShow.addEventListener('click', () => {
-    firstDiv.style.display = 'block';
-    secondDiv.style.display = 'none';
+    btnHideI.addEventListener('click', () => {
+    METRICDIV.style.display = 'block';
+    IMPERIALDIV.style.display = 'none';
     });
 
     </script>
