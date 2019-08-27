@@ -1,7 +1,7 @@
 //A kata from CodeWars where you turn a string of numbers into a new string with the highest and lowest values returned.
 
 function highAndLow(string){
-    let array = string.split(' ').map(Number);
+    let array = string.split(' ');
     return Math.max(...array) + " " + Math.min(...array);
     }
   
