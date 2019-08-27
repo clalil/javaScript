@@ -2,10 +2,7 @@
 
 function highAndLow(string){
     let array = string.split(' ').map(Number);
-    let max = Math.max(...array);
-    let min = Math.min(...array);
-    return String(max) + " " + String(min);
+    return Math.max(...array) + " " + Math.min(...array);
     }
   
   highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6")
-  
