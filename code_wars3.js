@@ -5,10 +5,7 @@ function sumTwoSmallestNumbers(numbers) {
     return a-b
     });
     //Filters items into lowest to highest number
-    let first = lowToHigh[0];
-    let second = lowToHigh[1];
-    //Filters out the two lowest, positive numbers
-    return first + second
+    return lowToHigh[0] + lowToHigh[1]
   }
   
   sumTwoSmallestNumbers([5, 8, 12, 19, 22])
