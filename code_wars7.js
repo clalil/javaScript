@@ -3,14 +3,8 @@
 
 function getMiddle(s) {
     if (s.length % 2 != 0) {
-    //Will return true if s.length is odd
       return s.substring(((s.length/2)), ((s.length/2)+1)) 
-    //Replaced substr w. substring as recommended by MDN, had to change code
-    //Restricts substring to only include the middle letter
-    //i.e. 'tesla' would return a '
      } else {
       return s.substring(((s.length/2)-1), (s.length/2)+1)
-  //Returns if the strings length is even
-  //Takes the two middle letters, i.e. 'saab' would be 'aa'
     }
 }
